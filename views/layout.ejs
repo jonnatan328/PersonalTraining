@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=typeof title == 'undefined' ? 'New Sails App' : title%></title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="/bower_components/angular-materialize/css/style.css">
+    <link rel="stylesheet" href="/bower_components/angular-material-icons/angular-material-icons.css">
+    <link rel="stylesheet" href="/bower_components/angular-confirm/dist/angular-confirm.min.css">
+    <link rel="stylesheet" href="/bower_components/nvd3/build/nv.d3.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <%- body %>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/jst.js"></script>
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/bower_components/angular-materialize/src/angular-materialize.js"></script>
+    <script src="/bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="/bower_components/angular-confirm/dist/angular-confirm.min.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-tooltips/dist/angular-tooltips.min.js"></script>
+    <script src="/bower_components/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
+    <script src="/bower_components/d3/d3.min.js"></script>
+    <script src="/bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
+    <script src="/bower_components/nvd3/build/nv.d3.min.js"></script>
+    <script src="/bower_components/jsPDF/dist/jspdf.min.js"></script>
+    <script src="/bower_components/html2canvas/build/html2canvas.min.js"></script>
+    <script src="/bower_components/angular-save-html-to-pdf/dist/saveHtmlToPdf.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/routes.js"></script>
+    <script src="/js/components/services/AnchorSmoothScroll.js"></script>
+    <script src="/js/components/services/ClientSvc.js"></script>
+    <script src="/js/components/services/GeographicSvc.js"></script>
+    <script src="/js/components/services/StorageSvc.js"></script>
+    <script src="/js/components/services/WorkoutResultSvc.js"></script>
+    <script src="/js/components/controllers/ClientCreateCtrl.js"></script>
+    <script src="/js/components/controllers/ClientsListCtrl.js"></script>
+    <script src="/js/components/controllers/HomeCtrl.js"></script>
+    <script src="/js/components/controllers/WorkoutResultCreateCtrl.js"></script>
+    <script src="/js/components/controllers/WorkoutResultCtrl.js"></script>
+    <script src="/js/components/controllers/WorkoutResultShowCtrl.js"></script>
+    <script src="/js/components/controllers/WorkoutResultTableCtrl.js"></script>
+    <script src="/js/components/directives/topbarDir.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

@@ -1,0 +1,161 @@
+nav .brand-logo,
+nav ul a {
+  color: #444;
+}
+
+.button-collapse {
+  color: #ee6e73;
+}
+
+nav a.button-collapse {
+  color: black;
+}
+
+.purple.lighten-1 {
+  background-color: #CC0066 !important;
+}
+
+.teal-text.text-lighten-2 {
+  color: #CC0066 !important;
+}
+
+nav {
+  overflow: visible;
+}
+
+nav li a {
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  // background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.8);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  padding: 18px 12px 12px 100px;
+  position: relative;
+  top: 25%;
+  width: 80%;
+  text-align: left;
+  margin-top: 30px;
+
+  .form-search {
+    vertical-align: bottom;
+
+    label {
+      font-size: 16px;
+    }
+
+    input[type=search] {
+      padding-left: 12px;
+      height: 34px;
+      width: 15%;
+      background-color: #ededed;
+      outline: none;
+      border: solid 1px #ccc;
+      -webkit-appearance: textfield;
+      -webkit-box-sizing: content-box;
+      font-family: inherit;
+      font-size: 100%;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+      // border-radius: 4px;
+      display: inline-block;
+    }
+    /* When the input field gets focus, change its width to 100% */
+    input[type=search]:focus {
+      width: 50%;
+      background-color: #fff;
+      border-color: #5ca6dd;
+      -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+      -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+      box-shadow: 0 0 5px rgba(109,207,246,.5);
+    }
+
+    input:-moz-placeholder {
+      color: #2b2b2b;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #2b2b2b;
+    }
+
+    .select-filter {
+      height: 35px;
+      width: 15%;
+      font-size: 100%;
+      // background: #080708;
+      background-color: #ededed;
+      display: inline-block;
+    }
+
+    .btn-search {
+      left: -4px;
+      border: 2px solid #207cca;
+      background-color: #207cca;
+      color: #fafafa;
+      width: 50px;
+      height: 36px;
+
+      &:hover {
+        background-color: #fafafa;
+        color: #207cca;
+      }
+    }
+
+    .arrow {
+      position: relative;
+      left: -8px;
+      background: #207cca;
+
+      ::after {
+        right: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-color: rgba(32, 124, 202, 0);
+        border-right-color: #207cca;
+        border-width: 10px;
+        margin-top: -10px;
+      }
+    }
+
+  }
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+}
+@media screen and (max-height: 450px) {
+  .overlay {
+    overflow-y: auto;
+  }
+
+  .overlay a {
+    font-size: 20px;
+  }
+
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}

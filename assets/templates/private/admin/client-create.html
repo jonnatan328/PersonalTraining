@@ -1,0 +1,223 @@
+<div class="container">
+  <h2>Registro</h2>
+  <div class="card">
+    <div class="card-content">
+      <form ng-submit="registerUser()" name="forms.formSignup" novalidate>
+        <div class="row">
+          <div class="col s9">
+            <div class="card">
+              <div class="card-title">
+                <h5>Información del cliente</h5>
+              </div>
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s6">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.names.$invalid && (!forms.formSignup.names.$pristine || forms.formSignup.$submitted || forms.formSignup.names.$touched),
+                      'has-success': forms.formSignup.names.$valid}">
+                        <ng-md-icon class="prefix" icon="account_circle" style="fill: black" size="40"></ng-md-icon>
+                        <input type="text" ng-model="user.names" name="names" placeholder="Nombre del cliente" required>
+                        <label>Nombres</label>
+                        <!-- VALIDACIONES DE NOMBRE  -->
+                        <div ng-messages="forms.formSignup.names.$error" ng-if="forms.formSignup.names.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar un nombre para el cliente.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s6">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.lastnames.$invalid && (!forms.formSignup.lastnames.$pristine || forms.formSignup.$submitted || forms.formSignup.lastnames.$touched),
+                'has-success': forms.formSignup.lastnames.$valid}">
+                        <ng-md-icon class="prefix" icon="account_circle" style="fill: black" size="40"></ng-md-icon>
+                        <input type="text" name="lastnames" placeholder="Apellidos del cliente" required ng-model="user.lastnames" required>
+                        <label>Apellidos</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formSignup.lastnames.$error" ng-if="forms.formSignup.lastnames.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar los apellidos.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s6">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.identification.$invalid && (!forms.formSignup.identification.$pristine || forms.formSignup.$submitted || forms.formSignup.identification.$touched),
+                    'has-success': forms.formSignup.identification.$valid}">
+                        <i class="fa fa-id-card-o prefix"></i>
+                        <input type="number" name="identification" ng-model="user.identification" placeholder="Ej. 1023676567" required>
+                        <label>Cedula</label>
+                        <!-- VALIDACIONES DE identification -->
+                        <div ng-messages="forms.formSignup.identification.$error" ng-if="forms.formSignup.identification.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar una identification.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col s6">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.email.$invalid && (!forms.formSignup.email.$pristine || forms.formSignup.$submitted || forms.formSignup.email.$touched),
+              'has-success': forms.formSignup.email.$valid}">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="email" name="email" placeholder="Ej. arketops@gmail.com" ng-model="user.email" required>
+                        <label>Email</label>
+                        <!-- VALIDACIONES DE CORREO -->
+                        <div ng-messages="forms.formSignup.email.$error" ng-if="forms.formSignup.email.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar un correo electrónico.</b></p>
+                          <p ng-message="email" class="help-block"><b>Debe ingresar una dirección de correo electronico válido.</b></p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s4">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.birthday.$invalid && (!forms.formSignup.birthday.$pristine || forms.formSignup.$submitted || forms.formSignup.birthday.$touched),
+                  'has-success': forms.formSignup.birthday.$valid}">
+                        <ng-md-icon class="prefix" icon="date_range" style="fill: black" size="40"></ng-md-icon>
+                        <label for="birthday">Fecha de nacimiento</label>
+                        <input input-date type="text" name="birthday" ng-model="user.birthday" id="birthday" container="" format="yyyy-mm-dd" months-full="{{ month }}" months-short="{{ monthShort }}" weekdays-full="{{ weekdaysFull }}" weekdays-short="{{ weekdaysShort }}" weekdays-letter="{{ weekdaysLetter }}"
+                          disable="disable" min="{{ minDate }}" max="{{ maxDate }}" today="today" first-day="1" clear="clear" close="close" select-years="15" on-start="onStart()" on-render="onRender()" on-open="onOpen()" on-close="onClose()" on-set="onSet()"
+                          on-stop="onStop()" />
+                        <!-- VALIDACIONES DE OVERVIEW -->
+                        <div ng-messages="forms.formSignup.birthday.$error" ng-if="forms.formSignup.birthday.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar una fecha de nacimiento.</b></p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col s4">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.weight.$invalid && (!forms.formSignup.weight.$pristine || forms.formSignup.$submitted || forms.formSignup.weight.$touched),
+                    'has-success': forms.formSignup.weight.$valid}">
+                        <ng-md-icon class="prefix" icon="fitness_center" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="weight" ng-model="user.weight" placeholder="Ej. 70" required>
+                        <label>Peso</label>
+                        <!-- VALIDACIONES DE WEIGHT -->
+                        <div ng-messages="forms.formSignup.weight.$error" ng-if="forms.formSignup.weight.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar un peso.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s4">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formSignup.height.$invalid && (!forms.formSignup.height.$pristine || forms.formSignup.$submitted || forms.formSignup.height.$touched),
+                    'has-success': forms.formSignup.height.$valid}">
+                        <ng-md-icon class="prefix" icon="person" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="height" ng-model="user.height" placeholder="Ej. 1.78" required>
+                        <label>Estatura</label>
+                        <!-- VALIDACIONES DE HEIGHT -->
+                        <div ng-messages="forms.formSignup.height.$error" ng-if="forms.formSignup.height.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar una estatura.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    <div input-field>
+                      <i class="fa fa-info prefix"></i>
+                      <textarea ng-model="user.additionalInformation" id="additionalInformation" placeholder="Información adicional" ng-maxlength="350" name="additionalInformation" class="materialize-textarea"></textarea>
+                      <label for="additionalInformation">Información adicional</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s3 image-upload">
+            <input type="file" id="file-input" name="imageFile" ng-model="imageFile" base-sixty-four-input required onload="onLoad" accept="image/jpg, image/jpeg, image/png">
+            <img class="image-avatar" ng-style="imgAvatarStyle" id="image-avatar" ng-src="data:{{fileObject.filetype}};base64,{{fileObject.base64}}" height="200" width="200">
+            <div class="icon-upload">
+              <label for="file-input">
+          <img class="add-image" id="add-image" ng-src="../../images/uploadIcon.png" >
+        </label>
+            </div>
+            <div class="row center label-logo">
+              <p>Cargue el logo de su empresa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <h5>Información de ubicación</h5>
+          </div>
+          <div class="card-content">
+            <div class="row">
+              <div class="col s4">
+                <div input-field>
+                  <i class="fa fa-map-o prefix"></i>
+                  <select class="" ng-model="countries.selected" ng-options="country.name for country in countries.choices" ng-change="getDepartments(countries.selected.alpha2Code)" material-select watch></select>
+                  <label>País</label>
+                </div>
+              </div>
+              <div class="col s4">
+                <div input-field>
+                  <i class="fa fa-map-signs prefix"></i>
+                  <select class="" ng-model="departments.selected" ng-options="department.adminName1 for department in departments.choices" ng-change="getCities(departments.selected.adminCode1)" material-select watch></select>
+                  <label>Departamento</label>
+                </div>
+              </div>
+              <div class="col s4">
+                <div input-field>
+                  <ng-md-icon icon="location_city" class="prefix" style="fill: black" size="30"></ng-md-icon>
+                  <select class="" ng-model="cities.selected" ng-options="city.name for city in cities.choices" material-select watch>
+            </select>
+                  <!-- <input type="text" ng-model="user.city" length="150"> -->
+                  <label>Ciudad</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6">
+                <div input-field>
+                  <div ng-class="{'has-error': forms.formSignup.nomenclature.$invalid && (!forms.formSignup.nomenclature.$pristine || forms.formSignup.$submitted || forms.formSignup.nomenclature.$touched),
+            'has-success': forms.formSignup.nomenclature.$valid}">
+                    <i class="fa fa-map-marker prefix"></i>
+                    <input type="text" name="nomenclature" placeholder="Ej. Calle 43 # 54-19" ng-model="user.nomenclature" required>
+                    <label>Dirección</label>
+                    <!-- VALIDACIONES DE DIRECCIÓN -->
+                    <div ng-messages="forms.formSignup.nomenclature.$error" ng-if="forms.formSignup.nomenclature.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                      <p ng-message="required" class="help-block"><b>Debe ingresar una dirección.</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col s6">
+                <div input-field>
+                  <div ng-class="{'has-error': forms.formSignup.phonenumber.$invalid && (!forms.formSignup.phonenumber.$pristine || forms.formSignup.$submitted || forms.formSignup.phonenumber.$touched),
+          'has-success': forms.formSignup.phonenumber.$valid}">
+                    <i class="fa fa-phone prefix"></i>
+                    <input type="text" name="phonenumber" placeholder="Ej. 2232111" ng-model="user.phonenumber" required>
+                    <label>Teléfono</label>
+                    <!-- VALIDACIONES DE TELÉFONO -->
+                    <div ng-messages="forms.formSignup.phonenumber.$error" ng-if="forms.formSignup.phonenumber.$touched || forms.formSignup.$submitted" ng-messages-multiple>
+                      <p ng-message="required" class="help-block"><b>Debe ingresar un teléfono.</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row center">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+    <i class="fa fa-send right"></i>
+  </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

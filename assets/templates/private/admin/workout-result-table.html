@@ -1,0 +1,46 @@
+<div class="container">
+  <h5 class="center"><strong>Entrenamientos</strong></h5>
+  <div class="row">
+      <div class="input-field input-group">
+        <ng-md-icon icon="search" class="prefix" style="fill: black" size="30"></ng-md-icon>
+        <input type="text" id="searchInput" ng-model="searchText.$">
+        <label for="searchInput">Filtrar los resultados</label>
+      </div>
+  </div>
+  <div pdf-save-content="tableToDownload" class="responsive-table">
+    <div class="hide">
+      <img ng-src="../../../images/logo.jpg" width="80" height="80" alt="">
+    </div>
+    <table class="bordered highlight">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Frecuencia</th>
+          <th>Potencia</th>
+          <th>Distancia</th>
+          <th>Velocidad</th>
+          <th>Cadencia</th>
+          <th>Trabajo</th>
+          <th>Duración</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-link" ng-repeat="workoutResult in workoutResults | filter:searchText | orderBy: sortByProperty:sortReversed">
+          <td style="vertical-align:middle"><strong>{{workoutResult.workoutName | capitalize}}</strong></td>
+          <td style="vertical-align:middle">{{workoutResult.date | date:'mediumDate':'+0000'}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.averageHeartRate}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.averagePower}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.distance}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.averageSpeed}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.averageCadence}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.work}}</td>
+          <td class="center" style="vertical-align:middle">{{workoutResult.duration}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="center">
+    <button pdf-save-button="tableToDownload" pdf-name="reporteSesiones.pdf" class="btn">Descargar</button>
+  </div>
+</div>

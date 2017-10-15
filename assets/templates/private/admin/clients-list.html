@@ -1,0 +1,48 @@
+<div class="container">
+  <h3 class="center">Clientes</h3>
+  <div class="input-field input-group">
+    <ng-md-icon icon="search" class="prefix" style="fill: black" size="30"></ng-md-icon>
+    <input type="text" id="searchInput" ng-model="searchText.$">
+    <label for="searchInput">Filtrar los resultados</label>
+  </div>
+  <ul class="collapsible popout" data-collapsible="accordion" watch>
+    <li ng-repeat="client in clients | filter:searchText | orderBy: sortByProperty:sortReversed">
+      <div class="collapsible-header">
+        <ng-md-icon class="prefix" icon="blur_on" style="fill: blue darken-1" size="20"></ng-md-icon>
+        <span class="main-data">{{client.names}} {{client.lastnames}}</span>
+        <a ng-click="goToWorkoutResult(client)" class="options center">Agregar reporte</a>
+      </div>
+      <div class="collapsible-body">
+        <div class="row">
+          <div class="col s2">
+            <img ng-style="imgAvatarStyle" class="img-profile" id="image-avatar" ng-src="{{client.imageURI}}" height="100" width="100">
+          </div>
+          <div class="content-data-client col s3">
+            <label for="">Cedula: </label>
+            <span>{{client.identification}}</span> <br>
+            <label for="">Email: </label>
+            <span>{{client.email}}</span> <br>
+            <label for="">Teléfono: </label>
+            <span>{{client.phonenumber}}</span> <br>
+            <label for="">Fecha nacimiento: </label>
+            <span>{{client.phonenumber}}</span>
+          </div>
+          <div class="content-data-client col s3">
+            <label for="">País: </label>
+            <span>{{client.country}}</span> <br>
+            <label for="">Departamento: </label>
+            <span>{{client.department}}</span> <br>
+            <label for="">Ciudad: </label>
+            <span>{{client.city}}</span> <br>
+            <label for="">Dirección: </label>
+            <span>{{client.nomenclature}}</span>
+          </div>
+          <div class="content-data-client col s3">
+            <label for="">Observaciones: </label><br>
+            <span>{{client.additionalInformation}}</span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

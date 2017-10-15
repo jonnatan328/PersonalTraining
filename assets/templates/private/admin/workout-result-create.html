@@ -1,0 +1,192 @@
+<div class="container">
+  <h4>Registrar resultados</h4>
+  <div class="card">
+    <div class="card-content ">
+      <div class="card">
+        <div class="card-content">
+          <form ng-submit="registerWorkoutResult()" name="forms.formCreateWorkoutResult" novalidate>
+            <div class="row">
+              <div class="col s6">
+                <div input-field>
+                  <ng-md-icon class="prefix" icon="fitness_center" style="fill: black" size="40"></ng-md-icon>
+                  <select ng-change="verifyName()" material-select ng-model="nameOptions.selected">
+                    <option ng-repeat="option in nameOptions.choices">{{option}}</option>
+                  </select>
+                  <label>Nombre del trabajo</label>
+                </div>
+              </div>
+              <div class="col s4" ng-show="showInputName">
+                <div input-field>
+                  <div ng-class="{'has-error': forms.formCreateWorkoutResult.workoutName.$invalid && (!forms.formCreateWorkoutResult.workoutName.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.workoutName.$touched),
+              'has-success': forms.formCreateWorkoutResult.workoutName.$valid}">
+                    <input type="text" ng-model="workout.workoutName" name="workoutName" placeholder="Escribe el nombre del trabajo." required>
+                    <!-- VALIDACIONES DE NOMBRE DE EMPRESA -->
+                    <div ng-messages="forms.formCreateWorkoutResult.workoutName.$error" ng-if="forms.formCreateWorkoutResult.workoutName.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                      <p ng-message="required" class="help-block"><b>Debe ingresar un nombre para el entrenamiento.</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6">
+                <div input-field>
+                  <div ng-class="{'has-error': forms.formCreateWorkoutResult.date.$invalid && (!forms.formCreateWorkoutResult.date.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.date.$touched),
+          'has-success': forms.formCreateWorkoutResult.date.$valid}">
+                    <ng-md-icon class="prefix" icon="date_range" style="fill: black" size="40"></ng-md-icon>
+                    <label for="date">Fecha</label>
+                    <input input-date type="text" name="date" ng-model="workout.date" id="date" container="" format="yyyy-mm-dd" months-full="{{ month }}" months-short="{{ monthShort }}" weekdays-full="{{ weekdaysFull }}" weekdays-short="{{ weekdaysShort }}" weekdays-letter="{{ weekdaysLetter }}"
+                      disable="disable" min="{{ minDate }}" max="{{ maxDate }}" today="today" first-day="1" clear="clear" close="close" select-years="15" />
+                    <!-- VALIDACIONES DE OVERVIEW -->
+                    <div ng-messages="forms.formCreateWorkoutResult.date.$error" ng-if="forms.formCreateWorkoutResult.date.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                      <p ng-message="required" class="help-block"><b>Debe ingresar una fecha.</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <h4 class="center"><strong>Valores</strong></h4>
+            <!-- <div class="row">
+              <div class="col s10"> -->
+                <div class="row">
+                  <div class="input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.duration.$invalid && (!forms.formCreateWorkoutResult.duration.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.duration.$touched),
+                      'has-success': forms.formCreateWorkoutResult.duration.$valid}">
+                        <ng-md-icon class="prefix" icon="timer" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="duration" placeholder="Duración del entrenamiento." required ng-model="workout.duration" required>
+                        <label>Duración</label>
+
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.duration.$error" ng-if="forms.formCreateWorkoutResult.duration.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar la duración.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>Min.</strong></span>
+                  </div>
+                  <div class="input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.distance.$invalid && (!forms.formCreateWorkoutResult.distance.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.distance.$touched),
+                      'has-success': forms.formCreateWorkoutResult.distance.$valid}">
+                        <ng-md-icon class="prefix" icon="edit_location" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="distance" placeholder="Distancia del entrenamiento." required ng-model="workout.distance" required>
+                        <label>Distancia</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.distance.$error" ng-if="forms.formCreateWorkoutResult.distance.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar la distancia.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>Km</strong></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.work.$invalid && (!forms.formCreateWorkoutResult.work.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.work.$touched),
+                      'has-success': forms.formCreateWorkoutResult.work.$valid}">
+                        <ng-md-icon class="prefix" icon="face" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="work" placeholder="Trabajo del entrenamiento." required ng-model="workout.work" required>
+                        <label>Trabajo</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.work.$error" ng-if="forms.formCreateWorkoutResult.work.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar el trabajo.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>Kj</strong></span>
+                  </div>
+                  <div class=" input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.averagePower.$invalid && (!forms.formCreateWorkoutResult.averagePower.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.averagePower.$touched),
+                      'has-success': forms.formCreateWorkoutResult.averagePower.$valid}">
+                        <ng-md-icon class="prefix" icon="power" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="averagePower" placeholder="Potencia del entrenamiento." required ng-model="workout.averagePower" required>
+                        <label>Potencia</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.averagePower.$error" ng-if="forms.formCreateWorkoutResult.averagePower.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar la potencia.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>W</strong></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.averageCadence.$invalid && (!forms.formCreateWorkoutResult.averageCadence.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.averageCadence.$touched),
+                      'has-success': forms.formCreateWorkoutResult.averageCadence.$valid}">
+                        <ng-md-icon class="prefix" icon="directions_bike" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="averageCadence" placeholder="Cadencia del entrenamiento." required ng-model="workout.averageCadence" required>
+                        <label>Cadencia</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.averageCadence.$error" ng-if="forms.formCreateWorkoutResult.averageCadence.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar la cadencia.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>RPM</strong></span>
+                  </div>
+                  <div class="input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.averageSpeed.$invalid && (!forms.formCreateWorkoutResult.averageSpeed.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.averageCadence.$touched),
+                      'has-success': forms.formCreateWorkoutResult.averageSpeed.$valid}">
+                        <ng-md-icon class="prefix" icon="directions_walk" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="averageSpeed" placeholder="Velocidad en el entrenamiento." required ng-model="workout.averageSpeed" required>
+                        <label>Velocidad</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.averageSpeed.$error" ng-if="forms.formCreateWorkoutResult.averageSpeed.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar la velocidad.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>Km/h</strong></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-record col s5">
+                    <div input-field>
+                      <div ng-class="{'has-error': forms.formCreateWorkoutResult.averageHeartRate.$invalid && (!forms.formCreateWorkoutResult.averageHeartRate.$pristine || forms.formCreateWorkoutResult.$submitted || forms.formCreateWorkoutResult.averageHeartRate.$touched),
+                      'has-success': forms.formCreateWorkoutResult.averageHeartRate.$valid}">
+                        <ng-md-icon class="prefix" icon="favorite" style="fill: black" size="40"></ng-md-icon>
+                        <input type="number" name="averageHeartRate" placeholder="Frecuencia en el entrenamiento." required ng-model="workout.averageHeartRate" required>
+                        <label>Frecuencia</label>
+                        <!-- VALIDACIONES DE LASTNAMES -->
+                        <div ng-messages="forms.formCreateWorkoutResult.averageHeartRate.$error" ng-if="forms.formCreateWorkoutResult.averageHeartRate.$touched || forms.formCreateWorkoutResult.$submitted" ng-messages-multiple>
+                          <p ng-message="required" class="help-block"><b>Debe ingresar la frecuencia.</b></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="suffix col s1">
+                    <span><strong>BPM</strong></span>
+                  </div>
+                </div>
+              <!-- </div>
+            </div> -->
+            <div class="row center">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+        <i class="fa fa-send right"></i>
+      </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

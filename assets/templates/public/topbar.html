@@ -1,0 +1,23 @@
+<div id="navbar" class="navbar-fixed scrollspy">
+  <nav class="white">
+    <div class="nav-wrapper container">
+      <img src="../../images/logo.jpg" class="brand-logo" width="200" height="50" alt="Logo Arketops">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down col s12">
+        <li><a data-activates='clientOptions' data-belowOrigin="true" dropdown data-hover="true">Clientes</a></li>
+        <li><a class="head-link" ui-sref="home">Inicio</a></li>
+        <!-- <li ng-if="!authenticated"><a class="head-link" ng-click="showFormSignup()" >Registrarse</a></li> -->
+      </ul>
+      <ul class="right side-nav section" id="mobile-demo">
+        <!-- <li><a data-activates='clientOptions' dropdown data-hover="true" href="collapsible.html">Clientes</a></li> -->
+        <li><a class="head-link" ui-sref="home">Inicio</a></li>
+        <!-- <li><a class="head-link" href="#signup">Registrarse</a></li> -->
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<ul id='clientOptions' class='dropdown-content'>
+    <li><a ui-sref="createClient">Crear</a></li>
+    <li><a ui-sref="listClients">Ver</a></li>
+</ul>
